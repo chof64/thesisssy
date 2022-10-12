@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./src/package/excel_data_extraction"
+    ]
+}
