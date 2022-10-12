@@ -14,6 +14,7 @@ class GetInformation:
         data = json.loads(json_data)
         clean = {}
         # TODO: dynamic mapping with a json mapping config file.
+        # TODO: Refactor key names to be more descriptive, intuitive, and consistent.
         clean["personal_information"] = {
             "surname": data["Unnamed: 3"]["8"],
             "first_name": data["Unnamed: 3"]["9"],
@@ -48,6 +49,8 @@ class GetInformation:
             "email_address": data["Unnamed: 8"]["32"],
         }
 
+        # TODO: dynamic mapping with a json mapping config file.
+        # TODO: Refactor key names to be more descriptive, intuitive, and consistent.
         clean["family_background"] = {}
 
         return clean
