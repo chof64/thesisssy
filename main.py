@@ -1,8 +1,13 @@
-import asyncio
-import aiofiles
+from fastapi import FastAPI
 
-if __name__ == "__main__":
+app = FastAPI()
 
-    # async def runner():
 
-    # asyncio.run(runner())
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
+
+
+@app.post("/upload/")
+async def pds_upload():
+    return {"message": "File uploaded successfully"}
