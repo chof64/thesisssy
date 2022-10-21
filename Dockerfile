@@ -10,6 +10,6 @@ WORKDIR /thesisssy
 COPY pyproject.toml .
 COPY poetry.lock .
 RUN ~/.local/share/pypoetry/venv/bin/poetry config virtualenvs.create false
-RUN ~/.local/share/pypoetry/venv/bin/poetry install --no-dev
+RUN ~/.local/share/pypoetry/venv/bin/poetry install --only main
 COPY . .
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "-- port", "8000", "--proxy-headers"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--proxy-headers"]
