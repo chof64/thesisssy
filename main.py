@@ -43,9 +43,3 @@ async def pds_extract(file: UploadFile = File(...), map=None):
 
     # TODO: Remove this line before testing.
     return extracted
-
-
-if __name__ == "__main__":
-    import uvicorn
-
-    uvicorn.run("main:app", host="localhost", port=8000, reload=True)
