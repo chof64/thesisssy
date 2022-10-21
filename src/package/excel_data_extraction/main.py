@@ -5,9 +5,9 @@ the application.
 """
 import asyncio
 
-from excel_data import ExcelData
-from clean_data import CleanData
-from temp_functions import TempFunctions
+from .excel_data import ExcelData
+from .clean_data import CleanData
+from .temp_functions import TempFunctions
 
 
 class ExcelDataExtraction:
@@ -24,9 +24,27 @@ class ExcelDataExtraction:
         """
         # self.config = config
 
-    async def extract(self):
-        """ """
-        pass
+    async def extract(file, override_map=None):
+        """
+        Called by the `/extract` endpoint.
+
+        This will extract the data from the excel file and return it as JSON.
+
+        Args:
+            file (UploadFile): The file to be extracted.
+            map (dict): Optional. A map of the data to be extracted.
+        """
+
+        # 1. Load the default map and the override map.
+        # 2. Use pandas to open the excel file.
+        # 3. Recursively loop through the map and extract the data.
+        #    - Take into account the multiple sheets.
+        excel_data = await ExcelData.get_excel_data(file)
+        # 4. Clean the data.
+        clean_data = await CleanData.clean(excel_data, override_map)
+        # 5. Return the extracted data as JSON.
+
+        return clean_data
 
     # TODO: Remove when function works as expected.
     async def test_extract(self):

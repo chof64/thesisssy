@@ -13,10 +13,7 @@ import aiofiles
 class CleanData:
     """"""
 
-    def __init__(self):
-        pass
-
-    async def _mapping(self, override_coord: array = None):
+    async def _mapping(override_map: array = None):
         """
         Utility function that returns the default mapping of the data,
         with the optional override_coord.
@@ -25,33 +22,41 @@ class CleanData:
             @override_coord - (Optional) The coordinate of the data to be
                                override.
         """
-        async with aiofiles.open("./temp/mapping_config.json", "r") as file:
+        async with aiofiles.open("./test/config/clean_config.json", "r") as file:
             config = await file.read()
             config = json.loads(config)
 
-        coord = config["default_pds"]
+        coord = config["default_map"]
 
-        # TODO: Check if override_coord is working properly
-        if override_coord != None:
-            for map in override_coord:
-                coord[map["name"]] = map["coord"]
+        if override_map != None:
+            for item in override_map:
+                index = [i for i, x in enumerate(coord) if x["sheet"] == item["sheet"]][
+                    0
+                ]
+                for key in item:
+                    coord[index][key] = item[key]
 
         mappings = []
 
-        for item in coord:
-            map = {}
-            map["name"] = item["name"]
-            map["coord"] = item["coord"]
+        for sheet in coord:
+            sheet_map = {"sheet": sheet["sheet"], "data": []}
 
-            converted_coord = re.findall(r"[A-Za-z]+|\d+", item["coord"])
-            map["column"] = config["letter_mapping"][converted_coord[0]]
-            map["row"] = str(int(converted_coord[1]) - 2)
+            for item in sheet["data"]:
+                converted_coord = re.findall(r"[A-Za-z]+|\d+", item["coord"])
+                sheet_map["data"].append(
+                    {
+                        "name": item["name"],
+                        "coord": item["coord"],
+                        "column": config["letter_mapping"][converted_coord[0]],
+                        "row": str(int(converted_coord[1]) - 2),
+                    }
+                )
 
-            mappings.append(map)
+            mappings.append(sheet_map)
 
         return mappings
 
-    async def clean(self, raw_json, override_coord: array = None):
+    async def clean(raw_json, override_coord: array = None):
         """
         Low level function that will clean the raw json data using the
         mapping provided.
@@ -63,9 +68,16 @@ class CleanData:
         return: dictionary
         """
         clean_json = {}
-        mappings = await self._mapping(override_coord)
+        mappings = await CleanData._mapping(override_coord)
 
-        for map in mappings:
-            clean_json[map["name"]] = raw_json[map["column"]][map["row"]]
+        for sheet in mappings:
+            for item in sheet["data"]:
+                index = [
+                    i for i, x in enumerate(raw_json) if x["sheet"] == sheet["sheet"]
+                ][0]
+
+                clean_json[item["name"]] = raw_json[index]["data"][item["column"]][
+                    item["row"]
+                ]
 
         return clean_json
