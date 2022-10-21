@@ -14,10 +14,9 @@ class ExcelData:
     excel file.
     """
 
-    def __init__(self, file_path: str = None):
-        self.file_path = file_path
+    # def __init__(self):
 
-    async def get_excel_data(self, file_object=None):
+    async def get_excel_data(file=None):
         """
         This will get the excel data using aiofiles to make the function
         async. And pass the data to pandas to be converted into a dataframe.
@@ -25,16 +24,21 @@ class ExcelData:
         args:
             @file_object - (Optional) The file object from Excel file.
 
-        returns: pandas dataframe
+        returns: dictionary
         """
-        # ? If file_object arg is not passed, use file_path of the class.
-        if self.file_path != None:
-            dataframe = pd.read_excel(self.file_path)
-            return dataframe
+        # dataframe = pd.read_excel(file)
 
-        # TODO: Revisit to remove or keep.
-        dataframe = pd.read_excel(file_object)
-        return dataframe
+        xls = pd.ExcelFile(file)
+
+        all_sheets = []
+
+        for sheet in xls.sheet_names:
+            dataframe = pd.read_excel(xls, sheet_name=sheet)
+            metadata = {"sheet": sheet, "data": json.loads(dataframe.to_json())}
+
+            all_sheets.append(metadata)
+
+        return all_sheets
 
     # TODO: Consider merging this function with get_excel_data.
     async def convert_excel_to_dict(self, dataframe):
