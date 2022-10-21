@@ -1,0 +1,26 @@
+
+# virtual environment
+./venv/
+.env.*
+.env
+.env.dev
+.env.prod
+
+# git information folder
+.git/
+.cache
+
+# Python __pycache__
+__pycache__/
+**/*.pyc
+
+# .md files
+*.md
+**/*.class
+
+# IDE files
+.vscode/
+
+# test/temp files
+test/
+temp/
