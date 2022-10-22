@@ -1,0 +1,53 @@
+{
+    "letter_mapping": {
+        "A": "Unnamed: 0",
+        "B": "Unnamed: 1",
+        "C": "Unnamed: 2",
+        "D": "Unnamed: 3",
+        "E": "Unnamed: 4",
+        "F": "Unnamed: 5",
+        "G": "Unnamed: 6",
+        "H": "Unnamed: 7",
+        "I": "Unnamed: 8",
+        "J": "Unnamed: 9",
+        "K": "Unnamed: 10",
+        "L": "Unnamed: 11",
+        "M": "Unnamed: 12",
+        "N": "Unnamed: 13",
+        "O": "Unnamed: 14",
+        "P": "Unnamed: 15",
+        "Q": "Unnamed: 16",
+        "R": "Unnamed: 17",
+        "S": "Unnamed: 18",
+        "T": "Unnamed: 19",
+        "U": "Unnamed: 20",
+        "V": "Unnamed: 21",
+        "W": "Unnamed: 22",
+        "X": "Unnamed: 23",
+        "Y": "Unnamed: 24",
+        "Z": "Unnamed: 25"
+    },
+    "default_map": [
+        {
+            "sheet": "C1",
+            "data": [
+                {
+                    "name": "Surname",
+                    "coord": "D10"
+                },
+                {
+                    "name": "First_Name",
+                    "coord": "D11"
+                },
+                {
+                    "name": "Middle_Name",
+                    "coord": "D12"
+                },
+                {
+                    "name": "Date_of_Birth",
+                    "coord": "D13"
+                }
+            ]
+        }        
+    ]
+}
