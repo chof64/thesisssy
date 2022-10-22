@@ -2,10 +2,9 @@
 This module is the low level function that will clean the excel data.
 """
 
-from array import array
-import asyncio
 import json
 import re
+from array import array
 
 import aiofiles
 

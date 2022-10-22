@@ -2,10 +2,9 @@
 The main module that interact with the excel file and extract the data
 needed by other package module.
 """
-import asyncio
-import pandas as pd
-import aiofiles
 import json
+
+import pandas as pd
 
 
 class ExcelData:
@@ -26,7 +25,6 @@ class ExcelData:
 
         returns: dictionary
         """
-        # dataframe = pd.read_excel(file)
 
         xls = pd.ExcelFile(file)
 
@@ -39,17 +37,3 @@ class ExcelData:
             all_sheets.append(metadata)
 
         return all_sheets
-
-    # TODO: Consider merging this function with get_excel_data.
-    async def convert_excel_to_dict(self, dataframe):
-        """
-        This will convert the pandas dataframe into a dictionary.
-
-        args:
-            @dataframe - The dataframe to be converted.
-
-        returns: dictionary
-        """
-        dictionary = json.loads(dataframe.to_json())
-
-        return dictionary
