@@ -21,7 +21,7 @@ class CleanData:
             @override_coord - (Optional) The coordinate of the data to be
                                override.
         """
-        async with aiofiles.open("./test/config/clean_config.json", "r") as file:
+        async with aiofiles.open("./config/cleandata.config.json", "r") as file:
             config = await file.read()
             config = json.loads(config)
 
