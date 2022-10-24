@@ -130,7 +130,85 @@
                 {
                     "name": "Residential_Address_ZipCode",
                     "coord": "I24"
+                },
+                {
+                    "name": "Permanent_Address_House/Block/LotNo",
+                    "coord": "I25"
+                },
+                {
+                    "name": "Permanent_Address_Street",
+                    "coord": "L25"
+                },
+                {
+                    "name": "Permanent_Address_Subdivision",
+                    "coord": "I27"
+                },
+                {
+                    "name": "Permanent_Address_Barangay",
+                    "coord": "L27"
+                },
+                {
+                    "name": "Permanent_Address_City",
+                    "coord": "I29"
+                },
+                {
+                    "name": "Permanent_Address_Province",
+                    "coord": "M29"
+                },
+                {
+                    "name": "Permanent_Address_ZipCode",
+                    "coord": "I31"
+                },
+                {
+                    "name": "Telephone_No",
+                    "coord": "I32"
+                },
+                {
+                    "name": "Mobile_No",
+                    "coord": "I33"
+                },
+                {
+                    "name": "Email_Address",
+                    "coord": "I34"
+                },
+                {
+                    "name": "Spouse_Surname",
+                    "coord": "D36"
+                },
+                {
+                    "name": "Spouse_Firstname",
+                    "coord": "D37"
+                },
+                {
+                    "name": "Spouse_Name_Extension",
+                    "coord": "G37"
+                },
+                {
+                    "name": "Spouse_Middlename",
+                    "coord": "D38"
+                },
+                {
+                    "name": "Spouse_Occupation",
+                    "coord": "D39"
+                },
+                {
+                    "name": "Spouse_Employer/Business",
+                    "coord": "D40"
+                },
+                {
+                    "name": "Spouse_Business_Address",
+                    "coord": "D41"
+                },
+                {
+                    "name": "Spouse_Tel_No",
+                    "coord": "D42"
+                },
+                {
+                    "name": "Name_of_Children_1",
+                    "coord": "I37"
                 }
+
+
 
             ]
         }
