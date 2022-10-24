@@ -44,10 +44,95 @@
                     "coord": "D12"
                 },
                 {
+                    "name": "Name_Extension",
+                    "coord": "L11"
+                },
+                {
                     "name": "Date_of_Birth",
                     "coord": "D13"
+                },
+                {
+                    "name": "Place_of_Birth",
+                    "coord": "D15"
+                },
+                {
+                    "name": "Sex",
+                    "coord": "D16"
+                },
+                {
+                    "name": "Civil_Status",
+                    "coord": "D17"
+                },
+                {
+                    "name": "Height",
+                    "coord": "D22"
+                },
+                {
+                    "name": "Weight",
+                    "coord": "D24"
+                },
+                {
+                    "name": "Blood_Type",
+                    "coord": "D25"
+                },
+                {
+                    "name": "GSIS_Id_No",
+                    "coord": "D27"
+                },
+                {
+                    "name": "Pagibig_Id_No",
+                    "coord": "D29"
+                },
+                {
+                    "name": "Philhealth_No",
+                    "coord": "D29"
+                },
+                {
+                    "name": "SSS_No",
+                    "coord": "D32"
+                },
+                {
+                    "name": "TIN_No",
+                    "coord": "D33"
+                },
+                {
+                    "name": "Agency_Employee_No",
+                    "coord": "D34"
+                },
+                {
+                    "name": "Citizenship",
+                    "coord": "J13"
+                },
+                {
+                    "name": "Residential_Address_House/Block/LotNo",
+                    "coord": "I17"
+                },
+                {
+                    "name": "Residential_Address_Street",
+                    "coord": "L17"
+                },
+                {
+                    "name": "Residential_Address_Subdivision",
+                    "coord": "I19"
+                },
+                {
+                    "name": "Residential_Address_Barangay",
+                    "coord": "L19"
+                },
+                {
+                    "name": "Residential_Address_City",
+                    "coord": "I22"
+                },
+                {
+                    "name": "Residential_Address_Province",
+                    "coord": "L22"
+                },
+                {
+                    "name": "Residential_Address_ZipCode",
+                    "coord": "I24"
                 }
+
             ]
-        }        
+        }
     ]
 }
