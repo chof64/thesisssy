@@ -1,6 +1,15 @@
-from fastapi import FastAPI, File, UploadFile
+from fastapi import FastAPI, File, UploadFile, Form
+from pydantic import BaseModel
+import aiohttp
 
 from src.package.excel_data_extraction.main import ExcelDataExtraction
+
+
+class JSONData(BaseModel):
+    file_url: str
+    file_name: str
+    map: dict
+
 
 app = FastAPI()
 
@@ -22,4 +31,18 @@ async def pds_extract(file: UploadFile = File(...), map=None):
 
     extracted = await ExcelDataExtraction.extract(await file.read(), map)
 
+    return extracted
+
+
+# Accepts JSON dictionary
+@app.post("/extract/json")
+async def pds_extract_json(data: JSONData):
+    """ """
+
+    async with aiohttp.ClientSession() as session:
+        async with session.get(data.file_url) as resp:
+            # open the file and store in a variable
+            file = await resp.read()
+
+    extracted = await ExcelDataExtraction.extract(file, data.map)
     return extracted
